@@ -1,0 +1,37 @@
+.first{
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+    gap: 10px;
+}
+.imagebox{
+    display: flex; 
+    background-color: brown;
+    gap: 10px;
+    height: 400px;
+    width: 50%;
+}
+.imagebox img{
+    height: 150px;
+    width:200px ;
+}
+.third{
+    height: 320px;
+    /* background-color: aqua; */
+}
+.fourth{
+    background-color: azure;
+    width: 500px;
+}
+.cartpage{
+    display: flex;
+    /* justify-content: space-between; */
+    align-items: center;
+    gap :10px;
+    margin-bottom: 20px;
+    
+}
+.cartpage p{
+    width: 100px;
+    overflow: hidden;
+}
