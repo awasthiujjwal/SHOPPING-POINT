@@ -1,10 +1,16 @@
 import React, { useContext, useEffect, useState } from 'react'
 import {Link} from 'react-router-dom'
 import Cartcontext from '../context/Cartcontext';
+import Searchcontext from '../context/Searchcontext';
  const Home = (props) => {
+  let x =useContext(Searchcontext)
+  console.log(x.search)
  let ctx =useContext(Cartcontext)
  console.log(ctx)
   const [arr, setarr] = useState([]);
+
+  let filteredArr = arr.filter((ele)=>ele.title.toLowerCase().includes(x.search))
+  console.log(filteredArr)
   async function fetchproducts(){
     let response= await fetch ('https://dummyjson.com/products?skip=0&limit=100')
     let data= await response.json();
@@ -28,8 +34,8 @@ import Cartcontext from '../context/Cartcontext';
    }
   return (
     <div className='container-fluid bg-dark mt-4'>
-      <div className="row row-cols-3">
-      {arr.map((obj)=>{
+      <div className="row d-flex justify-content-center row-cols-3">
+      {filteredArr.map((obj)=>{
         return<div key={obj.id} className="card m-2" style={{width: '18rem'}}>
   <img style={{height:"200px"}} src={obj.thumbnail} className="card-img-top" alt="..." />
   <div className="card-body">

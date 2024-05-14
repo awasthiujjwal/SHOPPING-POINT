@@ -4,11 +4,15 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import Cartstate from './context/Cartstate';
+import Searchstate from './context/Searchstate';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
  <Cartstate>
+    <Searchstate>
+
      <App />
+    </Searchstate>
  </Cartstate>
    
   
