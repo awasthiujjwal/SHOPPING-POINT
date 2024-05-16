@@ -2,10 +2,14 @@ import React, { useContext, useEffect, useState } from 'react'
 import {Link} from 'react-router-dom'
 import Cartcontext from '../context/Cartcontext';
 import Searchcontext from '../context/Searchcontext';
+import itemArr from '../components/Itemlists';
+
+
  const Home = (props) => {
+  
   let x =useContext(Searchcontext)
   console.log(x.search)
- let ctx =useContext(Cartcontext)
+ let ctx=useContext(Cartcontext)
  console.log(ctx)
   const [arr, setarr] = useState([]);
 
@@ -30,10 +34,28 @@ import Searchcontext from '../context/Searchcontext';
    }
     // console.log(ans)
   
-     
+
    }
   return (
-    <div className='container-fluid bg-dark mt-4'>
+    <div>
+    <div className='row text-center'>
+      <div className='col-2 mt-5'>
+      <h4>CATEGORY</h4>
+
+      <ul class="list-group">
+ 
+ 
+      {itemArr.map((ele)=>{
+        return   <li class="list-group-item">{ele}</li>
+        
+      })}
+</ul>
+      
+
+   
+</div>
+<div className='col-10'>
+      <div className='container-fluid bg-dark mt-4'>
       <div className="row d-flex justify-content-center row-cols-3">
       {filteredArr.map((obj)=>{
         return<div key={obj.id} className="card m-2" style={{width: '18rem'}}>
@@ -44,15 +66,38 @@ import Searchcontext from '../context/Searchcontext';
     <button  onClick={()=>{handlecart(obj)}}   className="btn btn-success">Add to cart</button>
     <Link to={'/single' } state={obj}className="btn btn-primary ms-2">View Detail</Link>
   </div>
+  
 </div>
 
 
       })
 
       }
+      <nav aria-label="Page navigation example">
+  <ul class="pagination">
+    <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+    <li class="page-item"><a class="page-link" href="#">1</a></li>
+    <li class="page-item"><a class="page-link" href="#">2</a></li>
+    <li class="page-item"><a class="page-link" href="#">3</a></li>
+    {/* <li class="page-item"><a class="page-link" href="#">4</a></li> */}
+    <li class="page-item"><a class="page-link" href="#">Next</a></li>
+  </ul>
+</nav>
       </div>
     
     </div>
+      </div>
+
+      </div >
+ms
+      
+
+
+
+
+
+    </div>
+    
   )
 }
 
