@@ -1,7 +1,10 @@
-import React, { useState } from 'react'
+import React, { useRef, useState } from 'react'
 import { Link } from 'react-router-dom';
 
 const Signup = () => {
+  let nameRef= useRef();
+  let emailRef= useRef();
+  let passwordRef= useRef();
   const [name, setname] = useState('');
   const [email, setemail] = useState('');
   const [password, setpassword] = useState('');
@@ -17,6 +20,9 @@ let obj={
 console.log(obj)
 
   }
+ 
+
+  
   const namechanger=(e)=>{
     let namechanger= e.target.value;
     console.log(namechanger)
@@ -39,18 +45,18 @@ console.log(obj)
         <div className="mb-3">
     
     <label htmlFor="exampleInputEmail1" className="form-label">Name</label>
-    <input  onChange={namechanger} type="text" className="form-control" id="name" aria-describedby="emailHelp" />
+    <input  onChange={namechanger} type="text" className="form-control" id="name" aria-describedby="emailHelp" ref={nameRef} />
     <div id="emailHelp" className="form-text"></div>
   </div>
   <div className="mb-3">
     
     <label htmlFor="exampleInputEmail1" className="form-label">Email address</label>
-    <input onChange={handleemail} type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
+    <input onChange={handleemail} type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" ref={emailRef} />
     <div id="emailHelp" className="form-text">We'll never share your email with anyone else.</div>
   </div>
   <div className="mb-3">
     <label htmlFor="exampleInputPassword1" className="form-label">Password</label>
-    <input onChange={passwordchanger} type="password" className="form-control" id="exampleInputPassword1" />
+    <input onChange={passwordchanger} type="password" className="form-control" id="exampleInputPassword1" ref={passwordRef} />
   </div>
   <div className="mb-3 form-check">
     <input  type="checkbox" className="form-check-input" id="exampleCheck1" />

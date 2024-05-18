@@ -1,12 +1,16 @@
 import React, { useRef } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 const Login = () => {
+  let arr = JSON.parse(localStorage.getItem('signup')) || []
+  console.log(arr)
+  let navigate = useNavigate()
     let emailRef =useRef ();
     let passRef =useRef ();
     const handlelogin=(e)=>{
     e.preventDefault();
     // console.log('running')
+   
    
     
     let obj={
@@ -16,6 +20,16 @@ const Login = () => {
         // password:password
     }
     console.log(obj)
+    let userAlreadyExists = arr.find((ele)=>ele.email===obj.email)
+    console.log(userAlreadyExists)
+    if(userAlreadyExists){
+        if(userAlreadyExists.password===obj.password){
+          navigate('/')
+        }
+    }else{
+      alert('please sign up ')
+    }
+
     }
     
   return (

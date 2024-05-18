@@ -5,16 +5,17 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import Cartstate from './context/Cartstate';
 import Searchstate from './context/Searchstate';
+import AuthState from './context/AuthState';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
+   <AuthState>
  <Cartstate>
     <Searchstate>
-
-     <App />
+      <App />
     </Searchstate>
  </Cartstate>
-   
+ </AuthState>
   
 );
 

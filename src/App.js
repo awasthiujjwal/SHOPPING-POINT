@@ -9,6 +9,7 @@ import Signup from './pages/Sign up';
 import Login from './pages/Login';
 import Singlepage from './pages/Singlepage';
 import Addtocart from './pages/Add to cart ';
+import Register from './pages/Register';
 
 // import { useState } from 'react';
 function App() {
@@ -22,7 +23,7 @@ function App() {
         <Route path='/' element={<Home/> }/>
         <Route path='/about' element={<About/>}/>
         <Route path='/contact' element={<Contact/>}/>
-        <Route path='/signup' element={<Signup/>}/>
+        <Route path='/signup' element={<Register/>}/>
         <Route path='/login' element={<Login/>}/>
         <Route path='/single' element={<Singlepage/>}/>
         <Route path='/add to cart'element={<Addtocart />}/>
